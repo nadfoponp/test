@@ -25,7 +25,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          curl -K -X POST 'https://x19obtcore.nie.netease.com:8443/login-otp' \
+          curl -X POST 'https://x19obtcore.nie.netease.com:8443/login-otp' \
             -H 'Content-Type: text/plain' \
             -H 'User-Agent: WPFLauncher/0.0.0.0' \
             -d '{"sauth_json":"{\"gameid\":\"x19\",\"login_channel\":\"4399pc\",\"app_channel\":\"4399pc\",\"platform\":\"pc\",\"sdkuid\":\"960509333\",\"sessionid\":\"fb5838159ac6b5cc8cd0aa0ba5e2b383\",\"sdk_version\":\"1.0.0\",\"udid\":\"2AB8DE51AC811B060FA1CA4F8715B5C9\",\"deviceid\":\"2AB8DE51AC811B060FA1CA4F8715B5C9\",\"aim_info\":\"{\\\"aim\\\":\\\"127.0.0.1\\\",\\\"country\\\":\\\"CN\\\",\\\"tz\\\":\\\"+0800\\\",\\\"tzid\\\":\\\"\\\"}\",\"client_login_sn\":\"E18C697E884D29111C494CBF184C6074\",\"gas_token\":\"\",\"source_platform\":\"pc\",\"ip\":\"127.0.0.1\",\"userid\":\"nekocurit_v5zryjn5n3\",\"realname\":\"{\\\"realname_type\\\":\\\"0\\\"}\",\"timestamp\":\"1756733180104\"}"}'
