@@ -1,32 +1,18 @@
-# This is a basic workflow to help you get started with Actions
+name: Windows Matrix Example
 
-name: CI
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+  run-matrix:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        instance: [1]
     steps:
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          curl -X POST 'https://x19obtcore.nie.netease.com:8443/login-otp' \
-            -H 'Content-Type: text/plain' \
-            -H 'User-Agent: WPFLauncher/0.0.0.0' \
-            -d '{"sauth_json":"{\"gameid\":\"x19\",\"login_channel\":\"4399pc\",\"app_channel\":\"4399pc\",\"platform\":\"pc\",\"sdkuid\":\"960509333\",\"sessionid\":\"fb5838159ac6b5cc8cd0aa0ba5e2b383\",\"sdk_version\":\"1.0.0\",\"udid\":\"2AB8DE51AC811B060FA1CA4F8715B5C9\",\"deviceid\":\"2AB8DE51AC811B060FA1CA4F8715B5C9\",\"aim_info\":\"{\\\"aim\\\":\\\"127.0.0.1\\\",\\\"country\\\":\\\"CN\\\",\\\"tz\\\":\\\"+0800\\\",\\\"tzid\\\":\\\"\\\"}\",\"client_login_sn\":\"E18C697E884D29111C494CBF184C6074\",\"gas_token\":\"\",\"source_platform\":\"pc\",\"ip\":\"127.0.0.1\",\"userid\":\"nekocurit_v5zryjn5n3\",\"realname\":\"{\\\"realname_type\\\":\\\"0\\\"}\",\"timestamp\":\"1756733180104\"}"}'
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
+      - name: Run instance
+        run: |
+          .\Cheese.LocalServer.exe
