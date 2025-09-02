@@ -13,6 +13,13 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      - name: Setup .NET 10 x86
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.0-preview.3.25171.5'
+          architecture: 'x86'
+
+
       - name: Run instance
         run: |
           .\Cheese.LocalServer.exe
